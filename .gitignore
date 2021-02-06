@@ -1,0 +1,24 @@
+# Binaries for programs and plugins
+*.exe
+*.exe~
+*.sh
+*.dll
+*.so
+*.dylib
+*.toml
+pg_test.sql
+# Test binary, build with `go test -c`
+*.test
+docs.json
+
+# Output of the go coverage tool, specifically when used with LiteIDE
+*.out
+*.pem
+*.log
+
+cmd
+cmd-dev
+cmd-prod
+.DS_Store
+
+/apps/docker/

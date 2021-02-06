@@ -24,10 +24,21 @@ func (httpH *Handler) FaceSearchHandler(ctx echo.Context) (err error) {
 		log.Errorf("parse form: %v", err)
 		return err
 	}
+	qualityControl := "NORMAL"
+	livenessControl := "NONE"
+	for k, values := range form.Value {
+		if k == "face_quality" && len(values) > 0 {
+			qualityControl = values[0]
+		} else if k == "face_liveness" && len(values) > 0 {
+			livenessControl = values[0]
+		}
+	}
 
 	bdResult, err := httpH.ctx.Baidu.FaceSearch(
 		[]string{httpH.ctx.Config.GetString("baidu.face.userGroupId")},
 		imageData,
+		baidu.FaceControlLevel(qualityControl),
+		baidu.FaceControlLevel(livenessControl),
 		httpH.ctx.Config.GetString("baidu.face.apiKey"),
 		httpH.ctx.Config.GetString("baidu.face.secretKey"),
 	)
