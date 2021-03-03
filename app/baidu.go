@@ -64,7 +64,9 @@ func (d *Service) Main(cfg *config.Config) {
 		)
 		ctx.Cache = redisCache
 	}
-	ctx.Baidu = baidu.NewBaidu(ctx.Cache, cfg)
+	ctx.Baidu = baidu.NewBaidu(ctx.Cache, cfg, func(s string) {
+		log.Infof("%s", s)
+	})
 
 	httpHandler := http.NewHttpHandler(ctx)
 	d.waitGroup.Wrap(func() {

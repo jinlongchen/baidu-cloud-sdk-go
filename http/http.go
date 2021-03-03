@@ -59,6 +59,7 @@ func (httpH *Handler) initRouter() *echo.Echo {
 	e.POST("/face-set/add", httpH.FaceSetUserAddHandler)
 	e.POST("/face/search", httpH.FaceSearchHandler)
 	e.POST("/face/multi-search", httpH.FaceMultiSearchHandler)
+	e.POST("/face/person-verify", httpH.PersonVerifyHandler)
 
 	e.GET("/version", func(ctx echo.Context) error {
 		ctx.String(200, version.String(httpH.ctx.Config.GetString("application.name"), httpH.GetVersion()))

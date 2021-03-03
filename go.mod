@@ -3,7 +3,7 @@ module github.com/jinlongchen/baidu
 go 1.14
 
 require (
-	github.com/brickman-source/golang-utilities v0.0.0-20210206201243-70932295b7ab
+	github.com/brickman-source/golang-utilities v0.0.0-20210303041515-95d4e6897c45
 	github.com/coreos/go-systemd v0.0.0-20190719114852-fd7a80b32e1f // indirect
 	github.com/gorilla/sessions v1.2.0
 	github.com/jmoiron/sqlx v1.2.0

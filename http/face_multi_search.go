@@ -45,7 +45,7 @@ func (httpH *Handler) FaceMultiSearchHandler(ctx echo.Context) (err error) {
 	)
 	if err != nil {
 		log.Errorf("face search err: %v", err)
-		return ctx.JSON(200, &AuditResult{
+		return ctx.JSON(200, &FaceMultiSearchResult{
 			ErrCode:    "internal_server_error",
 			ErrMessage: "处理异常",
 		})
